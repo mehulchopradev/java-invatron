@@ -1,0 +1,13 @@
+OOP
+
+Map Real world things to Software design
+
+1. Real world actors - Data in the memory (RAM) - Objects = Instance
+	- class : Blueprint from where objects can be created
+		: From a class, 1 to n objects can be created in the RAM
+		: a class gives a data type to an object
+
+
+2. Real world actor characteristics - Variables in the object = Instance variables
+
+3. Real world actor actions - Methods called on the object
