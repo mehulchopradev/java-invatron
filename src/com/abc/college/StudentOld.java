@@ -1,45 +1,46 @@
-// Person X
+package com.abc.college;// Person X
 
 // Every class in Java, occupies some memory in the RAM as a `Class` object
 // It is always 1 Class object per class
-public class Student {
+public class StudentOld {
 
     // instance variables
-    String name;
-    char gender;
-    double marks;
+    public String name;
+    public char gender;
+    public double marks;
+    private long[] mobileNos; // default value will be null
 
     // Class object variable
     // shared by all the instances of the class
-    static int count;
+    public static int count;
 
     // by default
-    // Student() {}
+    // com.abc.college.StudentOld() {}
     // Internally
     /*
-        Student(Student this) {
+        com.abc.college.StudentOld(com.abc.college.StudentOld this) {
 
         }
      */
 
     // constructor
-    Student() {
+    public StudentOld() {
         // this - current object
         // call another constructor of the same class
         // call to this (another constructor) must be the first instruction in this constructor
         this("NA", -1, 'm');
     }
 
-    Student(String name, char gender) {
+    public StudentOld(String name, char gender) {
         this(name, 0, gender);
     }
 
-    Student(char gender) {
+    public StudentOld(char gender) {
         this(null, 0.0, gender);
     }
 
     // whenever we define atleast 1 constructor in a class, we do not get the default constructor
-    Student(String name, double marks, char gender) {
+    public StudentOld(String name, double marks, char gender) {
         // this - current object for which this function was called at the time of object creation
 
         // initalize the attributes of an object
@@ -49,30 +50,42 @@ public class Student {
 
         // increment the count variable
         // Access the static variable using the class name
-        Student.count++;
+        StudentOld.count++;
     }
 
     // constructor overloading - The input list of the constructor must be varying in terms of number as well as sequence
 
-    String getDetails() {
+    public String getDetails() {
         // there is an implicit variable called as `this` available in the method
-        // `this` is going to be the current Student object for which the getDetails() was called
+        // `this` is going to be the current com.abc.college.StudentOld object for which the getDetails() was called
         // this -> s1, s2
 
-        return "Name: " + this.name + "\nGender: " + this.gender + "\nMarks: " + this.marks;
+        String part1 = "Name: " + this.name + "\nGender: " + this.gender + "\nMarks: " + this.marks;
         // return "Name: " + name + "\nGender: " + gender + "\nMarks: " + marks;
+
+        String part2 = "";
+        long[] mobiles = this.mobileNos;
+        if (mobiles != null) { // null check
+            for (int i = 0; i < mobiles.length; i++) {
+                part2 += mobiles[i] + "\n";
+            }
+        } else {
+            part2 = "No Mobile Nos";
+        }
+
+        return part1 + "\n" + part2;
     }
 
     /*
         Internally
 
-        String getDetails(Student this) {
+        String getDetails(com.abc.college.StudentOld this) {
 
         }
      */
 
-    char getGrade() {
-        // this - current Student object
+    public char getGrade() {
+        // this - current com.abc.college.StudentOld object
         double marks = this.marks;
         char grade;
 
@@ -91,8 +104,12 @@ public class Student {
         return grade;
     }
 
-    static Student createFemale() {
+    public static StudentOld createFemale() {
         // System.out.println(this); // there will be no `this` in a static method
-        return new Student('f');
+        return new StudentOld('f');
+    }
+
+    public void setMobileNos(long[] mobileNos) {
+        this.mobileNos = mobileNos;
     }
 }
