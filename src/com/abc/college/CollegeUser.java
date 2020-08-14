@@ -42,6 +42,10 @@ public abstract class CollegeUser { // extends Object { //every class in java im
     // a class with minimum one abstract method must be compulsorily marked as abstract
     public abstract void giveAttendance();
 
+    public boolean isEligibleForTaxDeduction() {
+        return false;
+    }
+
     // Most restrictive to least restrictive
     // 1. private
     // 2. protected
