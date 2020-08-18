@@ -10,6 +10,8 @@ public class Book {
     Author[] authors; // default value will be null. But authors has the capability to store
     // address of an Author[] object in the memory
 
+    private BookStatus status;
+
     public Book(String title, int pages, double price) {
         this(title, pages, price, null);
     }
@@ -19,6 +21,7 @@ public class Book {
         this.pages = pages;
         setPrice(price);
         this.authors = authors;
+        this.status = BookStatus.NOT_ISSUED;
     }
 
     public int getPages() {
@@ -64,5 +67,38 @@ public class Book {
         }
 
         return part1 + "\n" + part2;
+    }
+
+    public BookStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookStatus status) {
+        this.status = status;
+    }
+
+    public void returnBook() {
+        /* if (this.status == BookStatus.NOT_ISSUED) {
+            System.out.println("Book " + this.title + " has already been returned");
+            return;
+        }
+
+        System.out.println("Book " + this.title + " is returned");
+        this.status = BookStatus.NOT_ISSUED; */
+        this.status.returnBook(this);
+    }
+
+    public void issue() {
+        /* if (this.status == BookStatus.ISSUED) {
+            System.out.println("Book " + this.title + " has already been issued");
+            return;
+        }
+
+        System.out.println("Book " + this.title + " is issued"); */
+        this.status.issueBook(this);
+    }
+
+    public boolean canIssue() {
+        return this.status != BookStatus.ISSUED;
     }
 }

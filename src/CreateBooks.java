@@ -1,6 +1,7 @@
 
 import com.abc.college.Author;
 import com.abc.college.Book;
+import com.abc.college.BookStatus;
 
 public class CreateBooks {
 
@@ -24,5 +25,16 @@ public class CreateBooks {
 
         Book b2 = new Book("programming in scala", 560, 100, authors1);
         System.out.println(b2.getDetails());
+
+        if(b1.canIssue()) {
+            b1.issue();
+        }
+        // b1.returnBook();
+        System.out.println(b1.getStatus().getStatus()); // enums can be directly printed also
+
+        // b2.setStatus(BookStatus.NOT_ISSUED);
+
+        b2.issue();
+        b2.issue();
     }
 }
