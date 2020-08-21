@@ -2,7 +2,7 @@ package com.abc.college;
 
 public class Book {
 
-    String title;
+    public String title;
     private int pages;
     private double price;
     // private attribute
@@ -100,5 +100,14 @@ public class Book {
 
     public boolean canIssue() {
         return this.status != BookStatus.ISSUED;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", pages=" + pages +
+                ", price=" + price +
+                '}';
     }
 }
