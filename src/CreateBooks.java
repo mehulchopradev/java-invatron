@@ -3,6 +3,10 @@ import com.abc.college.Author;
 import com.abc.college.Book;
 import com.abc.college.BookStatus;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class CreateBooks {
 
     public static void main(String[] args) {
@@ -36,5 +40,8 @@ public class CreateBooks {
 
         b2.issue();
         b2.issue();
+
+        List<Book> books = Arrays.asList(b1, b2);
+        System.out.println(books.stream().collect(Collectors.averagingInt(book -> book.getPages())));
     }
 }
